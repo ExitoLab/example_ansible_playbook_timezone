@@ -6,7 +6,7 @@
   remote_user: ec2-user
   tasks:
     - name: Run command on servers and save output locally
-      ansible.builtin.command: "cat /proc/net/bonding/bond0"
+      ansible.builtin.shell: "cat /proc/net/bonding/bond0"
       register: command_output
       run_once: yes
 
