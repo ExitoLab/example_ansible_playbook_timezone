@@ -1,8 +1,0 @@
-Server list
-+--------------------------------------+-----------------+--------+-----------------------+----------------+-----------+
-| ID                                   | Name            | Status | Networks              | Image          | Flavor    |
-+--------------------------------------+-----------------+--------+-----------------------+----------------+-----------+
-| 23d2df26-0bff-49fd-92d2-eb5ae728033f | c11np0300pcn004 | ACTIVE | ctlplane=11.01.1011.11| overcloud-full | baremetal |
-| 2a22cd4b-3519-4682-aba6-7391a76729a1 | c13np0300pcn001 | ACTIVE | ctlplane=11.01.1011.11 | overcloud-full | baremetal |
-| cda69e83-eada-4aeb-833e-ebba3e092f3e | c13np0300pcn002 | ACTIVE | ctlplane=11.01.1011.11 | overcloud-full | baremetal |
-| 5d678965-cb05-4e3b-bb18-db1be7e06ce3 | c13np0300pcn003 | ACTIVE | ctlplane=311.01.1011.11 | overcloud-full | baremetal |

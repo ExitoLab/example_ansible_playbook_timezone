@@ -8,36 +8,36 @@ import os
 current_directory = os.getcwd()
 
 # Concatenate the current directory with the file name
-log_file = os.path.join(current_directory, 'log.txt')
+server_file = os.path.join(current_directory, 'servers.txt')
 
-def read_log_file(log_file):
-    """Reads the log file and extracts the IP addresses associated with ctlplane."""
-    ctlplane_ips = []
-    with open(log_file, 'r') as f:
+def read_servers_file(server_file):
+    """Reads the server file and extracts the IP addresses."""
+    ips = []
+    with open(server_file, 'r') as f:
         lines = f.readlines()
         for line in lines:
-            if 'ctlplane=' in line:
-                match = re.search(r'ctlplane=([\d\.]+)', line)
+            if 'ip_address=' in line:
+                match = re.search(r'ip_address=([\d\.]+)', line)
                 if match:
-                    ctlplane_ips.append(match.group(1))
-    return ctlplane_ips
+                    ips.append(match.group(1))
+    return ips
 
-def generate_inventory(ctlplane_ips):
+def generate_inventory(ips):
     """Generates the inventory in JSON format."""
     inventory = {
         '_meta': {
             'hostvars': {}
         },
         'all': {
-            'hosts': ctlplane_ips
+            'hosts': ips
         }
     }
     return inventory
 
 def main():
     """Main function."""
-    ctlplane_ips = read_log_file(log_file)
-    inventory = generate_inventory(ctlplane_ips)
+    ips = read_servers_file(server_file)
+    inventory = generate_inventory(ips)
     print(json.dumps(inventory))
 
 if __name__ == '__main__':
